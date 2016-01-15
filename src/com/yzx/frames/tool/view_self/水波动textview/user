@@ -1,0 +1,11 @@
+
+使用方法:
+
+		TitanicTextView tv = (TitanicTextView) findViewById(R.id.tv);
+
+		tv.setTextSize(50);
+		
+		tv.setText("fuck");
+
+
+		new Titanic().start(tv);

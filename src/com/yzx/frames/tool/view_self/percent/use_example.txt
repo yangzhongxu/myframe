@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.example.percent_lib"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.example.percent_lib.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="50%"
+            app:layout_widthPercent="50%"
+            android:background="#f00" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="50%"
+            app:layout_widthPercent="50%"
+            android:background="#f0f" />
+    </com.example.percent_lib.PercentLinearLayout>
+
+</RelativeLayout>
