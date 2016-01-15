@@ -17,7 +17,7 @@ public class PluginUtil {
 	 *            apk绝对路径
 	 * @return null if error or empty.
 	 */
-	public ActivityInfo[] getAPKActivityInfo(Context context, String apk_path) {
+	public static ActivityInfo[] getAPKActivityInfo(Context context, String apk_path) {
 		PackageInfo packageInfo = context.getPackageManager().getPackageArchiveInfo(apk_path, PackageManager.GET_ACTIVITIES);
 		if (packageInfo == null)
 			return null;
@@ -36,7 +36,7 @@ public class PluginUtil {
 	 * @return
 	 * @throws ClassNotFoundException
 	 */
-	public Class<?> getApkClassByClassName(Context context, String apk_path, String className) {
+	public static Class<?> getApkClassByClassName(Context context, String apk_path, String className) {
 		final String dexOutputPath = context.getDir("dex", 0).getAbsolutePath();
 		ClassLoader localClassLoader = ClassLoader.getSystemClassLoader();
 		DexClassLoader dexClassLoader = new DexClassLoader(apk_path, dexOutputPath, null, localClassLoader);
@@ -57,7 +57,7 @@ public class PluginUtil {
 	 *            目标APK路径
 	 * @return [0] : AssetManager -----[1] : Resources ; ERROR : null
 	 */
-	public Object[] getMyAssertAndResource(Resources superResources, String apk_path) {
+	public static Object[] getMyAssertAndResource(Resources superResources, String apk_path) {
 		AssetManager mAssetManager = null;
 		Resources mResources = null;
 		try {
@@ -69,6 +69,23 @@ public class PluginUtil {
 		}
 		mResources = new Resources(mAssetManager, superResources.getDisplayMetrics(), superResources.getConfiguration());
 		return new Object[] { mAssetManager, mResources };
+	}
+
+	/**
+	 * 获取资源id
+	 * 
+	 * @param res
+	 *            Resource实例
+	 * @param type
+	 *            资源类型 : color,string,style...
+	 * @param name
+	 *            资源名称
+	 * @param pkgName
+	 *            包名
+	 * @return
+	 */
+	public static int getResId(Resources res, String type, String name, String pkgName) {
+		return res.getIdentifier(name, type, pkgName);
 	}
 
 }
