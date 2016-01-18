@@ -57,7 +57,7 @@ public class PluginUtil {
 	 *            Ä¿±êAPKÂ·¾¶
 	 * @return [0] : AssetManager -----[1] : Resources ; ERROR : null
 	 */
-	public static Object[] getMyAssertAndResource(Resources superResources, String apk_path) {
+	public static Object[] getApkAssertAndResource(Resources superResources, String apk_path) {
 		AssetManager mAssetManager = null;
 		Resources mResources = null;
 		try {
