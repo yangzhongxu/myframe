@@ -1,0 +1,64 @@
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        final RippleLayout rippleLayout = (RippleLayout) findViewById(R.id.rippleLayout);
+        rippleLayout.post(new Runnable() {
+            public void run() {
+                rippleLayout.init(rippleLayout.getWidth() / 2,
+                        rippleLayout.getHeight() / 2,
+                        90,
+                        Math.min(rippleLayout.getWidth(), rippleLayout.getHeight()) / 2 + 100,
+                        900,
+                        Color.GREEN,
+                        9,
+                        new DecelerateInterpolator());
+            }
+        });
+
+        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                rippleLayout.doRipple();
+            }
+        });
+
+    }
+
+}
+
+
+
+
+===================================XML==================================================
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="yzx.ppw.ripple.MainActivity">
+
+
+    <yzx.ppw.ripple.RippleLayout
+        android:id="@+id/rippleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:background="#999"
+            android:text="click" />
+
+
+    </yzx.ppw.ripple.RippleLayout>
+
+
+</RelativeLayout>

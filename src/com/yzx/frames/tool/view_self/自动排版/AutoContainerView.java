@@ -16,18 +16,12 @@ public class AutoContainerView extends ViewGroup {
 		super(context);
 	}
 
-	// 改变前的 子View数量
-	private int count;
-
 	/**
 	 * 计算 各个子View的位置
 	 */
 	@Override
 	protected void onLayout(boolean changed, int l, int t, int r, int b) {
 		int i = getChildCount();
-		if (count == i)
-			return;
-		count = i;
 		int width = getMeasuredWidth();
 
 		int childWidth = 0;
